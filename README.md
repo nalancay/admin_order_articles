@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+## Aplicación de gestión de artículos y pedidos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
+En el directorio del proyecto, puede ejecutar:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Ejecuta la aplicación en el modo de desarrollo.\
+Abra [http://localhost:8001](http://localhost:8001) para verlo en su navegador.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+La aplicación está configurada para abrirse en el puerto 8001 en el archivo .env puede ver ese puerto
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+👉 Se realizo test unitario con react-testing-library en el archivo App.test, puede ejecutar el comando 'npm test' en ese archivo
 
-### `npm run build`
+### `Funcionalidades`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+La aplicación tiene dos vistas principales(articulos y pedidos) para gestionar los 'articulos' y a su ves poder generar 'pedidos'. Entre las funcionalidades principales se detallan a continuación:\
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+👉 Gestión de Articulos, donde podra crear y editar articulos.\
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+👉 Gestión de pedidos donde podra crear y editar pedidos.\
 
-### `npm run eject`
+👉 También se implemento traducciones en español e inglés\
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### `Detalle tecnicos`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+👉 Obtener datos en React con custom hook en useFetchList ya que puede utilizarse para cuando desea obtener datos de api de 'articles' y 'order' al hacer peticion GET.\
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+👉 Custom hook useForm para gestionar el estado en formulario para crear o editar article.\
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+👉 En custom hook useOrder se utilizo useReducer para gestionar el estado al realizar tareas de un pedido que puede contener un array de articulos.\
 
-## Learn More
+👉 Se utilizo concepto de Context para realizar traducción en toda la aplicacion. Se tuvo en cuenta que la hacer el refresh mantiene la traducion ya lo almacena en el localStorage\
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+👉 Generacion de test factories para utilizarlo en la ejecución de test unitario en archivo App.test.js\
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+👉 Navegar entre diferentes rutas utilizando modulo de react-router-dom
 
-### Code Splitting
+👉 En carpeta share se puso el componente Table ya que separa logica de negocio y se lo implementa de manera general para que puede ser utilizado en cualquier parte de la aplicación con solo pasar los parametros personalizado que necesita en cada vista de la aplicación.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+👉 Sitio web responsivo en escritorio y móvil.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+👉 En esta url puede ver la estructura del api que se construyo para utilizar en esta aplicación.\
+Abra [https://github.com/nalancay/api_admin/blob/main/db.json](https://github.com/nalancay/api_admin/blob/main/db.json)
